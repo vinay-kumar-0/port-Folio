@@ -1,0 +1,152 @@
+@import url("./css/base.css");
+
+*
+{
+    padding:0;
+    color:black;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body{
+    background-color:rgb(220, 220, 220);
+    color:black;
+}
+
+.gradient-image{
+    position: absolute;
+    right:0;
+    z-index: -1;
+}
+
+.gradient{
+    position:absolute;
+    top:20%;
+    right:0;
+    box-shadow: 0 0 700px 20px white;
+    z-index:-1;
+}
+
+.container{
+    width:100%;
+    margin:0 auto;
+    padding: 0 2rem;
+    position:relative;
+}
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:1rem 5rem;
+    
+}
+
+header h1{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 300;
+    font-size:3rem;
+    margin:0;
+}
+
+.container nav{
+    display:flex;
+    align-items:center;
+    gap:3rem;
+    margin-left:-5%;
+    z-index:999;
+    color:black;
+} 
+.container  a{
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    letter-spacing: 0.1rem;
+    text-decoration:none;
+    font-size:1rem;
+    @import url("./css/base.css");
+
+    .projects {
+        width: 100%;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.25rem;
+        padding: 2rem 0 3rem;
+    }
+
+    .project1 {
+        background: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        border-radius: 32px;
+        padding: 1.5rem;
+        min-height: 24rem;
+        box-shadow: var(--shadow-soft);
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .project1:hover {
+        transform: translateY(-4px);
+        border-color: transparent;
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.12);
+    }
+
+    .heading1 {
+        margin: 0 0 0.75rem 0;
+        font-size: 1.6rem;
+        font-weight: 600;
+        letter-spacing: 0.05rem;
+        text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+    }
+
+    .description {
+        color: var(--muted);
+        line-height: 1.55;
+        letter-spacing: 0.03rem;
+        min-height: 8rem;
+    }
+
+    .project-links {
+        display: flex;
+        gap: 0.75rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .project-links a {
+        padding: 0.65rem 1.05rem;
+        border-radius: 20px;
+        border: 1px solid #111;
+        font-weight: 600;
+        letter-spacing: 0.04rem;
+        transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .project-links .liveView:hover {
+        background-color: #000;
+        color: #fff;
+        border-color: transparent;
+    }
+
+    .project-links .codeView {
+        background-color: lightgray;
+        border: none;
+        color: #000;
+    }
+
+    .project-links .codeView:hover {
+        background-color: gray;
+        color: #fff;
+    }
+
+    .project5 {
+        min-height: 10rem;
+    }
+
+    @media (max-width: 768px) {
+        .projects {
+            grid-template-columns: 1fr;
+        }
+        .project1 {
+            min-height: auto;
+        }
+    }
+    transition-timing-function: ease;
+
+    transition-duration:1s;

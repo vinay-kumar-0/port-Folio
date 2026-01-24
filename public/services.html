@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/forms.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <img src="gradient.png" alt="gradient-image" class="gradient-image">
+    <div class="glow"></div>
+    <div class="container">
+        <header>
+            <h1 class="name">VinayKumar</h1>
+            <nav>
+                <a href="index.html">HOME</a>
+                <a href="skills.html">SKILLS</a>
+                <a href="education.html">EDUCATION</a>
+                <a href="projects.html">PROJECTS</a>
+                <a href="experience.html">EXPERIENCE</a>
+                <a href="services.html">SERVICES</a>
+                <a href="buy.html">BUY</a>
+                <a href="contact.html">CONTACT</a>
+            </nav>
+            <button class="btn-hire" data-hire-open>HIRE</button>
+        </header>
+
+        <div class="section">
+            <h2 class="page-title">Services</h2>
+            <p class="page-subtitle">Web development, editing, and tailored builds that match your brand and story.</p>
+            <div class="card-row">
+                <div class="service-card">
+                    <div class="badge">Web Development</div>
+                    <h3>Custom sites</h3>
+                    <p>Fast, responsive, and on-brand landing pages, portfolios, and product sites.</p>
+                    <div class="chip-list">
+                        <span class="chip">HTML/CSS/JS</span>
+                        <span class="chip">Performance</span>
+                        <span class="chip">SEO Ready</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="badge">Editing</div>
+                    <h3>Video & visuals</h3>
+                    <p>Snappy edits, story-focused pacing, and polish that fits your channel vibe.</p>
+                    <div class="chip-list">
+                        <span class="chip">Reels</span>
+                        <span class="chip">YT Shorts</span>
+                        <span class="chip">Motion</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="badge">Consulting</div>
+                    <h3>Tech guidance</h3>
+                    <p>Reviews, audits, and roadmaps to elevate your product or personal brand.</p>
+                    <div class="chip-list">
+                        <span class="chip">UX pass</span>
+                        <span class="chip">Performance</span>
+                        <span class="chip">Security</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-shell" style="margin-top: 1.5rem;">
+                <form id="services-form" class="form-grid">
+                    <div>
+                        <label for="service-name">Name</label>
+                        <input id="service-name" name="name" placeholder="Your name" required>
+                    </div>
+                    <div>
+                        <label for="service-email">Email</label>
+                        <input id="service-email" name="email" type="email" placeholder="you@example.com" required>
+                    </div>
+                    <div>
+                        <label for="service-type">Service</label>
+                        <select id="service-type" name="service" required>
+                            <option value="">Select one</option>
+                            <option value="web-development">Web Development</option>
+                            <option value="editing">Editing</option>
+                            <option value="consulting">Consulting</option>
+                        </select>
+                    </div>
+                    <div class="full" style="grid-column: 1 / -1;">
+                        <label for="service-details">Details</label>
+                        <textarea id="service-details" name="details" placeholder="Share goals, timeline, links, references..."></textarea>
+                    </div>
+                    <div class="form-actions" style="grid-column: 1 / -1;">
+                        <button class="button-primary" type="submit">Request service</button>
+                        <span class="note">I usually reply within 24 hours.</span>
+                        <div class="form-alert" data-services-alert></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"></script>
+    <spline-viewer class="model" url="https://prod.spline.design/PBQQBw8bfXDhBo7w/scene.splinecode" events-target="global"></spline-viewer>
+</body>
+</html>

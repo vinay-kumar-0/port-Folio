@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Out Of Nothing</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/forms.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <img src="gradient.png" alt="gradient-image" class="gradient-image">
+    <div class="glow"></div>
+    <div class="container">
+        <header>
+            <h1 class="name">VinayKumar</h1>
+            <nav>
+                <a href="index.html">HOME</a>
+                <a href="skills.html">SKILLS</a>
+                <a href="education.html">EDUCATION</a>
+                <a href="projects.html">PROJECTS</a>
+                <a href="experience.html">EXPERIENCE</a>
+                <a href="services.html">SERVICES</a>
+                <a href="buy.html">BUY</a>
+                <a href="contact.html">CONTACT</a>
+            </nav>
+            <button class="btn-hire" data-hire-open>HIRE</button>
+        </header>
+
+        <div class="section">
+            <h2 class="page-title">Buy "OUT OF NOTHING"</h2>
+            <p class="page-subtitle">Grab a copy of my short story book. You can order directly or jump to Amazon.</p>
+            <div class="section-shell">
+                <form id="buy-form" class="form-grid">
+                    <div>
+                        <label for="buy-name">Name</label>
+                        <input id="buy-name" name="name" placeholder="Your name" required>
+                    </div>
+                    <div>
+                        <label for="buy-email">Email</label>
+                        <input id="buy-email" name="email" type="email" placeholder="you@example.com" required>
+                    </div>
+                    <div>
+                        <label for="buy-qty">Quantity</label>
+                        <input id="buy-qty" name="quantity" type="number" min="1" value="1" required>
+                    </div>
+                    <div class="full" style="grid-column: 1 / -1;">
+                        <label for="buy-note">Note (optional)</label>
+                        <textarea id="buy-note" name="note" placeholder="Address or any special request"></textarea>
+                    </div>
+                    <div class="form-actions" style="grid-column: 1 / -1;">
+                        <button class="button-primary" type="submit">Place order</button>
+                        <a class="btn-git" href="https://amzn.to/3TqcfqP" target="_blank" rel="noreferrer">Amazon link</a>
+                        <div class="form-alert" data-buy-alert></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"></script>
+    <spline-viewer class="model" url="https://prod.spline.design/PBQQBw8bfXDhBo7w/scene.splinecode" events-target="global"></spline-viewer>
+</body>
+</html>

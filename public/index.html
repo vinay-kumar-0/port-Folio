@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VinayKumar - Portfolio</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/forms.css">
+    <link rel="stylesheet" href="./css/scrollable.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <img src="gradient.png" alt="gradient-image" class="gradient-image">
+    <div class="glow"></div>
+    <div class="container">
+        <header>
+            <h1 class="name">VinayKumar</h1>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="nav-menu">
+                <a href="#home">HOME</a>
+                <a href="#skills">SKILLS</a>
+                <a href="#education">EDUCATION</a>
+                <a href="#projects">PROJECTS</a>
+                <a href="#experience">EXPERIENCE</a>
+                <a href="#services">SERVICES</a>
+                <a href="#buy">BUY</a>
+                <a href="#contact">CONTACT</a>
+            </nav>
+            <button class="btn-hire" data-hire-open>HIRE</button>
+        </header>
+
+        <!-- HOME SECTION -->
+        <section id="home" class="section-full hero-section">
+            <main>
+                <div class="content">
+                    <div class="tag-box">
+                        <div class="tag">INTRODUCTION &wedbar;</div>
+                    </div>
+                    <h1>I am a WEB-DEVELOPER</h1>
+                    <p class="description">
+                        Cybersecurity undergraduate and web developer passionate about building secure, scalable applications. I also create technical content and explore the intersection of development and security.
+                    </p>
+                    <div class="buttons">
+                        <a href="https://github.com/vinay-kumar-0" class="btn-git">GitHub</a>
+                        <a href="https://www.linkedin.com/in/vinay-kumar-9261ab2b3/" class="resume">LINKEDIN</a>
+                    </div>
+                </div>
+            </main>
+            <img class="profile" src="profile-photo.png" alt="profile">
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills" class="section">
+            <h2 class="page-title">Skills</h2>
+            <p class="page-subtitle">Technologies and tools I work with.</p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Frontend</h3>
+                    <p>HTML, CSS, JavaScript, Responsive Design</p>
+                </div>
+                <div class="card">
+                    <h3>Backend</h3>
+                    <p>Node.js, Express, Python, C, Java, SQL, PostgreSQL, SQLite, REST APIs</p>
+                </div>
+                <div class="card">
+                    <h3>Tools</h3>
+                    <p>Git, VS Code, Figma, Davinci Resolve</p>
+                </div>
+                <div class="card">
+                    <h3>CyberSecurity</h3>
+                    <p>Pentesting, Ethical Hacking, Bug Bounty, Networking</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION SECTION -->
+        <section id="education" class="section">
+            <h2 class="page-title">Education</h2>
+            <p class="page-subtitle">A quick snapshot of my academic journey.</p>
+            <div class="section-shell">
+                <ul style="list-style: none; display: grid; gap: 1rem; padding: 0;">
+                    <li>
+                        <div class="badge">Current</div>
+                        <h3>Undergraduate — CyberSecurity</h3>
+                        <p class="page-subtitle">Diving deep into networking, pentesting, and applied security.</p>
+                    </li>
+                    <li>
+                        <div class="badge">Courses</div>
+                        <p class="page-subtitle">Web programming (CS50), UI/UX fundamentals, video editing workflows.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="section">
+            <h2 class="page-title">Projects</h2>
+            <p class="page-subtitle">Work I've built and learned from.</p>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>GoogleFrontPage</h3>
+                    <p>First web-dev project from Harvard's CS50. A clean reproduction of Google's front page.</p>
+                    <div class="project-links">
+                        <a href="https://vinay-kumar-0.github.io/harvard-cs50-project0/" class="btn-link">Live View</a>
+                        <a href="https://github.com/vinay-kumar-0/harvard-cs50-project0/tree/main" class="btn-link">View Code</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>CoffeeShopUI</h3>
+                    <p>First UI design project in Figma. Focused on color theory and smooth animations.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/vinay-kumar-0/UI-DESIGN-FIGMA" class="btn-link">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>OutOfNothingBook</h3>
+                    <p>A short story book about a boy named Vikram. Now available on Amazon.</p>
+                    <div class="project-links">
+                        <a href="https://amzn.to/3TqcfqP" class="btn-link">Buy Book</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>VideoEditingProject</h3>
+                    <p>Professional video editing work. Dynamic cuts and smooth transitions.</p>
+                    <div class="project-links">
+                        <a href="https://www.instagram.com/reel/DG03yt8SGNE/" class="btn-link">View Video</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE SECTION -->
+        <section id="experience" class="section">
+            <h2 class="page-title">Experience</h2>
+            <p class="page-subtitle">Professional roles and internships.</p>
+            <div class="section-shell">
+                <div class="experience-item">
+                    <h3>CyberSecurity Intern</h3>
+                    <p>Currently working as a Pentester and Bug-bounty hunter intern at Supraja Technologies. Learning about networking, ethical hacking, and cyber forensics.</p>
+                    <a href="https://www.linkedin.com/posts/vinay-kumar-9261ab2b3_internship-offer-letter-activity-7333758589611753472-25Bo?utm_source=share&utm_medium=member_desktop" class="btn-link">View Offer Letter</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section id="services" class="section">
+            <h2 class="page-title">Services</h2>
+            <p class="page-subtitle">Web development, editing, and tailored builds that match your brand and story.</p>
+            <div class="card-row">
+                <div class="service-card">
+                    <div class="badge">Web Development</div>
+                    <h3>Custom sites</h3>
+                    <p>Fast, responsive, and on-brand landing pages, portfolios, and product sites.</p>
+                    <div class="chip-list">
+                        <span class="chip">HTML/CSS/JS</span>
+                        <span class="chip">Performance</span>
+                        <span class="chip">SEO Ready</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="badge">Editing</div>
+                    <h3>Video & visuals</h3>
+                    <p>Snappy edits, story-focused pacing, and polish that fits your channel vibe.</p>
+                    <div class="chip-list">
+                        <span class="chip">Reels</span>
+                        <span class="chip">YT Shorts</span>
+                        <span class="chip">Motion</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="badge">Consulting</div>
+                    <h3>Tech guidance</h3>
+                    <p>Reviews, audits, and roadmaps to elevate your product or personal brand.</p>
+                    <div class="chip-list">
+                        <span class="chip">UX pass</span>
+                        <span class="chip">Performance</span>
+                        <span class="chip">Security</span>
+                    </div>
+                </div>
+            </div>
+            <div class="section-shell" style="margin-top: 2rem;">
+                <form id="services-form" class="form-grid">
+                    <div>
+                        <label for="service-name">Name</label>
+                        <input id="service-name" name="name" placeholder="Your name" required>
+                    </div>
+                    <div>
+                        <label for="service-email">Email</label>
+                        <input id="service-email" name="email" type="email" placeholder="you@example.com" required>
+                    </div>
+                    <div>
+                        <label for="service-type">Service</label>
+                        <select id="service-type" name="service" required>
+                            <option value="">Select one</option>
+                            <option value="web-development">Web Development</option>
+                            <option value="editing">Editing</option>
+                            <option value="consulting">Consulting</option>
+                        </select>
+                    </div>
+                    <div class="full" style="grid-column: 1 / -1;">
+                        <label for="service-details">Details</label>
+                        <textarea id="service-details" name="details" placeholder="Share goals, timeline, links, references..."></textarea>
+                    </div>
+                    <div class="form-actions" style="grid-column: 1 / -1;">
+                        <button class="button-primary" type="submit">Request service</button>
+                        <span class="note">I usually reply within 24 hours.</span>
+                        <div class="form-alert" data-services-alert></div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- BUY SECTION -->
+        <section id="buy" class="section">
+            <h2 class="page-title">Buy "OUT OF NOTHING"</h2>
+            <p class="page-subtitle">Grab a copy of my short story book. You can order directly or jump to Amazon.</p>
+            <div class="section-shell">
+                <form id="buy-form" class="form-grid">
+                    <div>
+                        <label for="buy-name">Name</label>
+                        <input id="buy-name" name="name" placeholder="Your name" required>
+                    </div>
+                    <div>
+                        <label for="buy-email">Email</label>
+                        <input id="buy-email" name="email" type="email" placeholder="you@example.com" required>
+                    </div>
+                    <div>
+                        <label for="buy-qty">Quantity</label>
+                        <input id="buy-qty" name="quantity" type="number" min="1" value="1" required>
+                    </div>
+                    <div class="full" style="grid-column: 1 / -1;">
+                        <label for="buy-note">Note (optional)</label>
+                        <textarea id="buy-note" name="note" placeholder="Address or any special request"></textarea>
+                    </div>
+                    <div class="form-actions" style="grid-column: 1 / -1;">
+                        <button class="button-primary" type="submit">Place order</button>
+                        <a class="btn-git" href="https://amzn.to/3TqcfqP" target="_blank" rel="noreferrer">Amazon link</a>
+                        <div class="form-alert" data-buy-alert></div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="section">
+            <h2 class="page-title">Contact</h2>
+            <p class="page-subtitle">Drop a note about collaborations, projects, or just say hi.</p>
+            <div class="section-shell">
+                <form id="contact-form" class="form-grid">
+                    <div>
+                        <label for="contact-name">Name</label>
+                        <input id="contact-name" name="name" placeholder="Your name" required>
+                    </div>
+                    <div>
+                        <label for="contact-email">Email</label>
+                        <input id="contact-email" name="email" type="email" placeholder="you@example.com" required>
+                    </div>
+                    <div class="full" style="grid-column: 1 / -1;">
+                        <label for="contact-message">Message</label>
+                        <textarea id="contact-message" name="message" placeholder="Tell me about your idea..." required></textarea>
+                    </div>
+                    <div class="form-actions" style="grid-column: 1 / -1;">
+                        <button class="button-primary" type="submit">Send message</button>
+                        <span class="note">You will get a confirmation if it goes through.</span>
+                        <div class="form-alert" data-contact-alert></div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <script type="module" src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"></script>
+    <spline-viewer class="model" url="https://prod.spline.design/PBQQBw8bfXDhBo7w/scene.splinecode" events-target="global"></spline-viewer>
+</body>
+</html>

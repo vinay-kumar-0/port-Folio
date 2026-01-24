@@ -1,0 +1,219 @@
+/* Scrollable page layout */
+
+.hero-section {
+    position: relative;
+    min-height: calc(80vh - 6rem);
+    padding: 2rem 0;
+}
+
+.hero-section main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(50vh - 6rem);
+}
+
+.hero-section .content {
+    max-width: 40rem;
+    margin-left: 10%;
+    z-index: 999;
+}
+
+.hero-section .profile {
+    position: absolute;
+    right: 10%;
+    top: 10%;
+    max-width: 22rem;
+    z-index: 1;
+    animation: profile-animation 6s ease-in-out infinite alternate;
+}
+
+/* Regular sections */
+.section {
+    padding: clamp(3rem, 6vw, 5rem) 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.section:first-of-type {
+    border-top: none;
+}
+
+/* Projects grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: clamp(1rem, 2vw, 1.75rem);
+    margin-top: clamp(1.5rem, 2vw, 2.5rem);
+}
+
+.project-card {
+    background: var(--card);
+    border-radius: var(--radius-lg);
+    padding: clamp(1.25rem, 2vw, 1.75rem);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.project-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.project-card p {
+    color: var(--muted);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.project-links {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.btn-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.6rem 1.2rem;
+    background: rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: var(--radius-pill);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.btn-link:hover {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+}
+
+/* Experience section */
+.experience-item {
+    padding: 1.5rem;
+    border-left: 4px solid var(--accent);
+    background: rgba(127, 66, 167, 0.04);
+    border-radius: 8px;
+}
+
+.experience-item h3 {
+    margin-bottom: 0.75rem;
+    font-size: 1.3rem;
+}
+
+.experience-item p {
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsive adjustments for scrollable layout */
+@media (max-width: 1300px) {
+    .hero-section .profile {
+        right: 5%;
+        max-width: 18rem;
+    }
+    .hero-section .content {
+        margin-left: 5%;
+    }
+}
+
+@media (max-width: 900px) {
+    .hero-section {
+        min-height: auto;
+    }
+
+    .hero-section .content {
+        margin-left: 2%;
+        max-width: 100%;
+    }
+
+    .hero-section .profile {
+        position: relative;
+        inset: auto;
+        display: block;
+        margin: 2rem auto 0;
+        right: auto;
+        top: auto;
+        max-width: 16rem;
+    }
+
+    .hero-section main {
+        min-height: auto;
+    }
+
+    .section {
+        padding: 2rem 0;
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 1.5rem 0;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .project-links {
+        flex-direction: column;
+    }
+
+    .btn-link {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .experience-item {
+        padding: 1rem;
+    }
+
+    .service-card {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        padding: 1rem 0;
+    }
+
+    .project-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .project-card p {
+        font-size: 0.95rem;
+    }
+
+    .btn-link {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+}
