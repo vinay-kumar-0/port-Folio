@@ -79,7 +79,12 @@ async function sendNotification(subject, html) {
         return;
     }
     const to = process.env.NOTIFY_EMAIL || process.env.SMTP_USER;
-    await transporter.sendMail({ from: process.env.FROM_EMAIL || to, to, subject, html });
+    try {
+        await transporter.sendMail({ from: process.env.FROM_EMAIL || to, to, subject, html });
+    } catch (err) {
+        // Log and continue so DB writes still succeed even if email fails
+        console.error("[notify] failed to send email", err);
+    }
 }
 
 // Helpers
@@ -98,7 +103,7 @@ app.post("/api/contact", async (req, res) => {
     if (missing) return res.status(400).json({ error: `${missing} is required` });
     const { name, email, message } = req.body;
     try {
-        await run("INSERT INTO contact_messages (name, email, message) VALUES (?, ?, ?)", [name, email, message]);
+        await run(`INSERT INTO contact_messages (name, email, message) VALUES (?, ?, ?)`, [name, email, message]);
         await sendNotification("New contact message", `<p><b>${name}</b> (${email})</p><p>${message}</p>`);
         res.json({ ok: true });
     } catch (err) {
@@ -112,7 +117,7 @@ app.post("/api/services", async (req, res) => {
     if (missing) return res.status(400).json({ error: `${missing} is required` });
     const { name, email, service, details = "" } = req.body;
     try {
-        await run("INSERT INTO service_requests (name, email, service, details) VALUES (?, ?, ?, ?)", [name, email, service, details]);
+        await run(`INSERT INTO service_requests (name, email, service, details) VALUES (?, ?, ?, ?)`, [name, email, service, details]);
         await sendNotification("New service request", `<p><b>${name}</b> (${email})</p><p>Service: ${service}</p><p>${details}</p>`);
         res.json({ ok: true });
     } catch (err) {
@@ -127,7 +132,7 @@ app.post("/api/buy", async (req, res) => {
     const { name, email, quantity, note = "" } = req.body;
     const qty = Number(quantity) || 1;
     try {
-        await run("INSERT INTO book_orders (name, email, quantity, note) VALUES (?, ?, ?, ?)", [name, email, qty, note]);
+        await run(`INSERT INTO book_orders (name, email, quantity, note) VALUES (?, ?, ?, ?)`, [name, email, qty, note]);
         await sendNotification("New book order", `<p><b>${name}</b> (${email})</p><p>Quantity: ${qty}</p><p>${note}</p>`);
         res.json({ ok: true });
     } catch (err) {
@@ -141,7 +146,7 @@ app.post("/api/hire", async (req, res) => {
     if (missing) return res.status(400).json({ error: `${missing} is required` });
     const { name, email, role = "", details = "" } = req.body;
     try {
-        await run("INSERT INTO hire_requests (name, email, role, details) VALUES (?, ?, ?, ?)", [name, email, role, details]);
+        await run(`INSERT INTO hire_requests (name, email, role, details) VALUES (?, ?, ?, ?)`, name, email, role, details);
         await sendNotification("New hire inquiry", `<p><b>${name}</b> (${email})</p><p>Role: ${role}</p><p>${details}</p>`);
         res.json({ ok: true });
     } catch (err) {
