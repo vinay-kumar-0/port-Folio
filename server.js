@@ -81,9 +81,11 @@ async function sendNotification(subject, html) {
     const to = process.env.NOTIFY_EMAIL || process.env.SMTP_USER;
     try {
         await transporter.sendMail({ from: process.env.FROM_EMAIL || to, to, subject, html });
+        console.log(`[notify] ✓ Email sent to ${to}: ${subject}`);
     } catch (err) {
         // Log and continue so DB writes still succeed even if email fails
-        console.error("[notify] failed to send email", err);
+        console.error("[notify] ✗ Failed to send email:", err.message);
+        console.error("Full error:", err);
     }
 }
 
