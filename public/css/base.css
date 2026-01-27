@@ -143,18 +143,20 @@ nav a:hover {
     transform: rotate(-45deg) translate(8px, -8px);
 }
 
-@media (max-width: 630px) {
+@media (max-width: 742px) {
     .hamburger {
         display: flex;
         order: 1;
     }
     
     header {
-        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 1rem;
     }
     
     header h1 {
         order: 2;
+        flex: 1;
     }
     
     nav {
@@ -166,9 +168,12 @@ nav a:hover {
         max-width: 300px;
         background-color: var(--bg);
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 0;
+        padding-top: 4rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
         transition: left 0.3s ease;
         z-index: 1000;
         box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
@@ -179,14 +184,22 @@ nav a:hover {
     }
     
     nav a {
-        font-size: 1.2rem;
-        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        padding: 1rem 0;
+        display: block;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        width: 100%;
+    }
+    
+    nav a:last-child {
+        border-bottom: none;
     }
     
     .btn-hire {
         order: 3;
         padding: 0.6rem 1.5rem;
         font-size: 0.9rem;
+        margin-left: auto;
     }
 }
 

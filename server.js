@@ -146,7 +146,7 @@ app.post("/api/hire", async (req, res) => {
     if (missing) return res.status(400).json({ error: `${missing} is required` });
     const { name, email, role = "", details = "" } = req.body;
     try {
-        await run(`INSERT INTO hire_requests (name, email, role, details) VALUES (?, ?, ?, ?)`, name, email, role, details);
+        await run(`INSERT INTO hire_requests (name, email, role, details) VALUES (?, ?, ?, ?)`, [name, email, role, details]);
         await sendNotification("New hire inquiry", `<p><b>${name}</b> (${email})</p><p>Role: ${role}</p><p>${details}</p>`);
         res.json({ ok: true });
     } catch (err) {
