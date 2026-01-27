@@ -61,11 +61,16 @@ async function initDb() {
 }
 
 // Email setup (optional)
+const EMAIL_TIMEOUT_MS = Number(process.env.EMAIL_TIMEOUT_MS || 8000);
+
 const transporter = process.env.SMTP_HOST
     ? nodemailer.createTransport({
             host: process.env.SMTP_HOST,
             port: Number(process.env.SMTP_PORT || 587),
             secure: process.env.SMTP_SECURE === "true",
+            connectionTimeout: EMAIL_TIMEOUT_MS,
+            greetingTimeout: EMAIL_TIMEOUT_MS,
+            socketTimeout: EMAIL_TIMEOUT_MS,
             auth: {
                 user: process.env.SMTP_USER,
                 pass: process.env.SMTP_PASS,
@@ -76,17 +81,12 @@ const transporter = process.env.SMTP_HOST
 async function sendNotification(subject, html) {
     if (!transporter) {
         console.log("[notify]", subject, html.replace(/<[^>]+>/g, " "));
-        return;
+        return Promise.resolve();
     }
     const to = process.env.NOTIFY_EMAIL || process.env.SMTP_USER;
-    try {
-        await transporter.sendMail({ from: process.env.FROM_EMAIL || to, to, subject, html });
-        console.log(`[notify] ✓ Email sent to ${to}: ${subject}`);
-    } catch (err) {
-        // Log and continue so DB writes still succeed even if email fails
-        console.error("[notify] ✗ Failed to send email:", err.message);
-        console.error("Full error:", err);
-    }
+    const sendPromise = transporter.sendMail({ from: process.env.FROM_EMAIL || to, to, subject, html });
+    const timeout = new Promise((_, reject) => setTimeout(() => reject(new Error("Email send timeout")), EMAIL_TIMEOUT_MS));
+    return Promise.race([sendPromise, timeout]);
 }
 
 // Helpers
@@ -106,7 +106,9 @@ app.post("/api/contact", async (req, res) => {
     const { name, email, message } = req.body;
     try {
         await run(`INSERT INTO contact_messages (name, email, message) VALUES (?, ?, ?)`, [name, email, message]);
-        await sendNotification("New contact message", `<p><b>${name}</b> (${email})</p><p>${message}</p>`);
+        sendNotification("New contact message", `<p><b>${name}</b> (${email})</p><p>${message}</p>`).catch((err) => {
+            console.error("[notify] contact failed", err.message);
+        });
         res.json({ ok: true });
     } catch (err) {
         console.error(err);
@@ -120,7 +122,9 @@ app.post("/api/services", async (req, res) => {
     const { name, email, service, details = "" } = req.body;
     try {
         await run(`INSERT INTO service_requests (name, email, service, details) VALUES (?, ?, ?, ?)`, [name, email, service, details]);
-        await sendNotification("New service request", `<p><b>${name}</b> (${email})</p><p>Service: ${service}</p><p>${details}</p>`);
+        sendNotification("New service request", `<p><b>${name}</b> (${email})</p><p>Service: ${service}</p><p>${details}</p>`).catch((err) => {
+            console.error("[notify] service failed", err.message);
+        });
         res.json({ ok: true });
     } catch (err) {
         console.error(err);
@@ -135,7 +139,9 @@ app.post("/api/buy", async (req, res) => {
     const qty = Number(quantity) || 1;
     try {
         await run(`INSERT INTO book_orders (name, email, quantity, note) VALUES (?, ?, ?, ?)`, [name, email, qty, note]);
-        await sendNotification("New book order", `<p><b>${name}</b> (${email})</p><p>Quantity: ${qty}</p><p>${note}</p>`);
+        sendNotification("New book order", `<p><b>${name}</b> (${email})</p><p>Quantity: ${qty}</p><p>${note}</p>`).catch((err) => {
+            console.error("[notify] buy failed", err.message);
+        });
         res.json({ ok: true });
     } catch (err) {
         console.error(err);
@@ -149,7 +155,9 @@ app.post("/api/hire", async (req, res) => {
     const { name, email, role = "", details = "" } = req.body;
     try {
         await run(`INSERT INTO hire_requests (name, email, role, details) VALUES (?, ?, ?, ?)`, [name, email, role, details]);
-        await sendNotification("New hire inquiry", `<p><b>${name}</b> (${email})</p><p>Role: ${role}</p><p>${details}</p>`);
+        sendNotification("New hire inquiry", `<p><b>${name}</b> (${email})</p><p>Role: ${role}</p><p>${details}</p>`).catch((err) => {
+            console.error("[notify] hire failed", err.message);
+        });
         res.json({ ok: true });
     } catch (err) {
         console.error(err);
